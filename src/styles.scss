@@ -1,0 +1,150 @@
+$void: #ffffff00;
+$primary: #3880ff;
+$secondary: #3dc2ff;
+$tertiary: #5260ff;
+$success: #2dd36f;
+$warning: #ffc409;
+$danger: #eb445a;
+$dark: #222428;
+$medium: #92949c;
+$light: #f4f5f8;
+$black: #000000;
+$white: #ffffff;
+
+:root {
+  --responsiveUnit: calc(1vmin + 1vmax);
+  --headerHeight: calc(var(--responsiveUnit) * 3);
+  --footerHeight: calc(var(--responsiveUnit) * 4);
+  --scrollbarWidth: calc(var(--responsiveUnit) * 0.5);
+  --defaultContentHeight: calc(100dvh - var(--headerHeight) - var(--footerHeight));
+}
+
+//* MIXIN [START]
+@mixin fixedHeight($height) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+}
+
+@mixin fixedWidth($width) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+}
+
+@mixin square($size) {
+  @include fixedWidth($size);
+  @include fixedHeight($size);
+}
+
+@mixin allVendors($property, $args) {
+  @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+    #{$prefix + $property}: $args;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+//* MIXIN [END]
+
+//* SCROLLBAR [START]
+::-webkit-scrollbar {
+  width: var(--scrollbarWidth);
+}
+
+::-webkit-scrollbar-track {
+  background: $dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $medium;
+}
+//* SCROLLBAR [END]
+
+//* FONTS [START]
+@font-face {
+  font-family: "Comfortaa";
+  src: url("assets/fonts/comfortaa/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("assets/fonts/minecraft/Minecraft.ttf");
+}
+
+@font-face {
+  font-family: "OldLondon";
+  src: url("assets/fonts/old_london/OldLondon.ttf");
+}
+
+@font-face {
+  font-family: "college";
+  src: url("assets/fonts/college/college.ttf");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/fonts/quicksand/Quicksand_Dash.otf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/roboto/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: "VCR";
+  src: url("assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf");
+}
+
+@font-face {
+  font-family: "CaviarDreams";
+  src: url("assets/fonts/caviar_dreams/CaviarDreams.ttf");
+}
+
+@font-face {
+  font-family: "Roadgeek";
+  src: url("assets/fonts/Roadgeek-2005-Series-5B/Roadgeek 2005 Series 5B.ttf");
+}
+
+@font-face {
+  font-family: "Bourgeois-Light";
+  src: url("assets/fonts/Bourgeois-Light/Bourgeois-Light.ttf");
+}
+//* FONTS [END]
+
+html,
+body,
+app-root {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overscroll-behavior: none;
+  font-family: monospace;
+  color: $light;
+  background: $dark;
+  @include portrait {
+    color: $dark;
+    background: $light;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,7 @@
+@import "/src/styles.scss";
+
+:host {
+  // aspect-ratio: 1;
+  height: calc(var(--responsiveUnit) * 2);
+  width: calc(var(--responsiveUnit) * 2);
+}

@@ -1,0 +1,26 @@
+<div id="content">
+  <div class="wrapper">
+    <div class="customInput">
+      <label for="player1">Player 1:</label>
+      <input id="player1" type="text" placeholder="Player 1">
+    </div>
+
+    <div class="customInput">
+      <label for="player2">Player 2:</label>
+      <input id="player2" type="text" placeholder="Player 2">
+    </div>
+
+    <button class="customButton" id="sortButton" (click)="sortTeams()">SORT</button>
+  </div>
+
+  <div class="customTable">
+    <div class="customTableRow">
+      <div class="customTableColumn header team-a">Team A</div>
+      <div class="customTableColumn header team-b">Team B</div>
+    </div>
+
+    <div class="customTableRow" *ngFor="let row of teamArray | keyvalue : app.defaultOrder">
+      <div class="customTableColumn" *ngFor="let column of row.value | keyvalue : app.defaultOrder" [class.team-a]="column.value['team'] == 'A'" [class.team-b]="column.value['team'] == 'B'">{{column.value['name']}}</div>
+    </div>
+  </div>
+</div>

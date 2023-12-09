@@ -1,0 +1,220 @@
+@import "/src/styles.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: $dark;
+}
+
+#content {
+  min-height: var(--defaultContentHeight);
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+}
+
+:host {
+  --teamABackground: red;
+  --teamAText: white;
+  --teamBBackground: blue;
+  --teamBText: white;
+}
+
+$teamABackground: red;
+$teamAText: white;
+$teamBBackground: blue;
+$teamBText: white;
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: $light;
+  width: calc(var(--responsiveUnit) * 30);
+  padding: calc(var(--responsiveUnit) * 1);
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+  margin-bottom: calc(var(--responsiveUnit) * 1);
+
+  &::before {
+    --marginRatio: 30%;
+
+    content: "";
+    position: absolute;
+    width: calc(100% + var(--marginRatio));
+    height: calc(100% - var(--marginRatio));
+    background: linear-gradient(
+      90deg,
+      var(--teamABackground),
+      var(--teamABackground),
+      var(--teamABackground),
+      var(--teamABackground),
+      var(--teamABackground),
+      var(--teamBBackground),
+      var(--teamBBackground),
+      var(--teamBBackground),
+      var(--teamBBackground),
+      var(--teamBBackground)
+    );
+    animation: spin 10s linear infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--responsiveUnit) * 0.3);
+    border-radius: calc(var(--responsiveUnit) * 0.5);
+    background: $dark;
+  }
+
+  .customInput,
+  .customButton {
+    z-index: 2;
+    margin-top: calc(var(--responsiveUnit) * 0.5);
+  }
+}
+
+.customInput {
+  --labelInputRatio: 30%;
+
+  background: $light;
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+  padding: calc(var(--responsiveUnit) * 0.5);
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  label,
+  input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+  }
+
+  label {
+    width: var(--labelInputRatio);
+    text-align: center;
+    font-size: calc(var(--responsiveUnit) * 1.5);
+    font-weight: bolder;
+  }
+
+  input {
+    width: calc(100% - var(--labelInputRatio));
+    font-size: calc(var(--responsiveUnit) * 1.4);
+    color: $medium;
+  }
+}
+
+.customButton {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: $light;
+  border: calc(var(--responsiveUnit) * 0.1) solid $light;
+  border-radius: calc(var(--responsiveUnit) * 0.5);
+  padding: calc(var(--responsiveUnit) * 0.5);
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 1.5);
+  font-weight: bolder;
+  cursor: pointer;
+  @include allVendors(transition, all 150ms ease-in-out);
+  background: linear-gradient(180deg, var(--teamABackground), var(--teamBBackground));
+  @include allVendors(background-clip, text);
+  @include allVendors(text-fill-color, transparent);
+  @include allVendors(text-stroke, calc(var(--responsiveUnit) * 0.05) $light);
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.customTable {
+  --itemPerRow: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--responsiveUnit) * 30);
+  @include portrait {
+    font-size: calc(var(--responsiveUnit) * 1.5);
+  }
+
+  .customTableRow,
+  .customTableColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .customTableRow {
+    width: 100%;
+
+    &:last-child {
+      .customTableColumn {
+        border-bottom-left-radius: calc(var(--responsiveUnit) * 0.5);
+        border-bottom-right-radius: calc(var(--responsiveUnit) * 0.5);
+      }
+    }
+  }
+
+  .customTableColumn {
+    width: calc(100% / var(--itemPerRow));
+    margin-inline: calc(var(--responsiveUnit) * 0.2);
+    padding-block: calc(var(--responsiveUnit) * 0.4);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.header {
+      background: $primary;
+      border-top-left-radius: calc(var(--responsiveUnit) * 0.5);
+      border-top-right-radius: calc(var(--responsiveUnit) * 0.5);
+
+      &.team-a {
+        background: var(--teamABackground);
+        color: var(--teamAText);
+      }
+
+      &.team-b {
+        background: var(--teamBBackground);
+        color: var(--teamBText);
+      }
+    }
+
+    &.team-a {
+      background: lighten($teamABackground, 20%);
+      color: var(--teamAText);
+      border-top: calc(var(--responsiveUnit) * 0.2) solid $teamABackground;
+    }
+
+    &.team-b {
+      background: lighten($teamBBackground, 20%);
+      color: var(--teamBText);
+      border-top: calc(var(--responsiveUnit) * 0.2) solid $teamBBackground;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

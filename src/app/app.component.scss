@@ -1,0 +1,80 @@
+@import "/src/styles.scss";
+
+:host {
+  --landscapeGradient: linear-gradient(100deg, lightcoral, khaki);
+  --portraitGradient: linear-gradient(100deg, khaki, lightcoral);
+  --contentGradient: linear-gradient(90deg, sandybrown, peachpuff, peachpuff, sandybrown);
+
+  position: relative;
+  color: $dark;
+}
+
+main {
+  position: relative;
+  @include fixedHeight(100%);
+  @include fixedWidth(100%);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+router-outlet {
+  display: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--landscapeGradient);
+  @include fixedWidth(100%);
+  @include fixedHeight(var(--headerHeight));
+  @include portrait {
+    background: var(--portraitGradient);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: calc(var(--responsiveUnit) * 2);
+    @include allVendors(transition, all 250ms ease-in-out);
+    &:hover {
+      color: $medium;
+      cursor: pointer;
+    }
+  }
+}
+
+#main-content {
+  @include fixedWidth(100%);
+  background: var(--contentGradient);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--landscapeGradient);
+  @include fixedWidth(100%);
+  @include fixedHeight(var(--footerHeight));
+  @include portrait {
+    background: var(--portraitGradient);
+  }
+
+  h2 {
+    font-size: calc(var(--responsiveUnit) * 1);
+    text-align: center;
+
+    #heart {
+      color: $danger;
+    }
+
+    a {
+      color: $danger;
+      @include allVendors(transition, all 250ms ease-in-out);
+      &:hover {
+        filter: invert(1);
+      }
+    }
+  }
+}
