@@ -106,8 +106,8 @@ export class HomeComponent implements OnInit {
       }
     ]);
 
-    // player1.value = '';
-    // player2.value = '';
+    player1.value = '';
+    player2.value = '';
 
     console.log(`[${this.title}#sortTeams] teamArray`, this.teamArray);
   }
