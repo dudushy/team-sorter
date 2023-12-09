@@ -1,7 +1,7 @@
 [![pages-build-deployment](https://github.com/dudushy/team-sorter/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/dudushy/team-sorter/actions/workflows/pages/pages-build-deployment)
 
 # [team-sorter](https://github.com/dudushy/team-sorter/)
-desc.
+Enter 2 names, sort a team.
 
 ---
 ## Prerequisites:
