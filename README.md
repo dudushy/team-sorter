@@ -1,6 +1,6 @@
-[![pages-build-deployment](https://github.com/dudushy/teamSorter/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/dudushy/teamSorter/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/dudushy/team-sorter/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/dudushy/team-sorter/actions/workflows/pages/pages-build-deployment)
 
-# [teamSorter](https://github.com/dudushy/teamSorter/)
+# [team-sorter](https://github.com/dudushy/team-sorter/)
 desc.
 
 ---

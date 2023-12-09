@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 })
 export class AppComponent {
   PROJECT_NAME = 'Team Sorter';
-  PROJECT_DIR = 'teamSorter';
+  PROJECT_DIR = 'team-sorter';
 
   title = 'AppComponent';
 

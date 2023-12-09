@@ -8,10 +8,10 @@ echo $TITLE "setup config..."
 echo $TITLE "- - - - - - - - - - - - - - - - - - - - - - - - - -"
 #* vars
 
-PAGE_URL="https://dudushy.github.io/teamSorter/"
+PAGE_URL="https://dudushy.github.io/team-sorter/"
 echo $TITLE "- PAGE_URL=" $PAGE_URL
 
-PROJECT_NAME="teamSorter"
+PROJECT_NAME="team-sorter"
 echo $TITLE "- PROJECT_NAME=" $PROJECT_NAME
 
 COMMIT_MESSAGE='`'"${BRANCH_NAME}"':'"${COMMIT_SHORT_HASH}"'`'
