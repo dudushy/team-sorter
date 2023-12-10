@@ -19,15 +19,15 @@
 }
 
 :host {
-  --teamABackground: red;
+  --teamABackground: purple;
   --teamAText: white;
-  --teamBBackground: blue;
+  --teamBBackground: darkorange;
   --teamBText: white;
 }
 
-$teamABackground: red;
+$teamABackground: purple;
 $teamAText: white;
-$teamBBackground: blue;
+$teamBBackground: darkorange;
 $teamBText: white;
 
 #content {
@@ -43,7 +43,7 @@ $teamBText: white;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: $light;
+  background: peachpuff;
   width: calc(var(--responsiveUnit) * 30);
   padding: calc(var(--responsiveUnit) * 1);
   border-radius: calc(var(--responsiveUnit) * 0.5);
@@ -77,7 +77,7 @@ $teamBText: white;
     position: absolute;
     inset: calc(var(--responsiveUnit) * 0.3);
     border-radius: calc(var(--responsiveUnit) * 0.5);
-    background: $dark;
+    background: sandybrown;
   }
 
   .customInput,
@@ -90,7 +90,7 @@ $teamBText: white;
 .customInput {
   --labelInputRatio: 30%;
 
-  background: $light;
+  background: peachpuff;
   border-radius: calc(var(--responsiveUnit) * 0.5);
   padding: calc(var(--responsiveUnit) * 0.5);
   width: 100%;
@@ -127,7 +127,7 @@ $teamBText: white;
   border: 0;
   outline: 0;
   color: $light;
-  border: calc(var(--responsiveUnit) * 0.1) solid $light;
+  border: calc(var(--responsiveUnit) * 0.1) solid peachpuff;
   border-radius: calc(var(--responsiveUnit) * 0.5);
   padding: calc(var(--responsiveUnit) * 0.5);
   width: 100%;
